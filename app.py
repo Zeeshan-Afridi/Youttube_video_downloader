@@ -1,6 +1,5 @@
 import streamlit as st
-from pytube import YouTube
-from pytube import Playlist
+from pytube import YouTube, Playlist
 from tqdm import tqdm
 import requests
 import re
