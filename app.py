@@ -59,20 +59,17 @@ with st.sidebar:
             # Create a checklist to select streams
             selected_streams = st.multiselect("Select streams to download:", stream_list)
 
-            # Create a file uploader for selecting the download folder
-            download_folder = st.file_uploader("Select download folder:", type=["folder"])
 
-            if st.button("Download Video") and download_folder is not None:
-                download_path = download_folder.name
+            if st.button("Download Video"):
 
                 for stream in selected_streams:
                     stream_resolution = stream.split(" ")[0]
                     selected_stream = next(s for s in streams if s.resolution == stream_resolution)
-                    st.write(f"Downloading {selected_stream.resolution} video to {download_path}...")
+                    st.write(f"Downloading {selected_stream.resolution} video")
 
                     # Use tqdm to track download progress
                     clean_title = clean_filename(yt.title)
-                    output_filename = os.path.join(download_path, f"{clean_title}_{selected_stream.resolution}.mp4")
+                    output_filename = os.path.join( f"{clean_title}_{selected_stream.resolution}.mp4")
 
                     with requests.get(selected_stream.url, stream=True) as response:
                         total_size = int(response.headers.get('content-length', 0))
