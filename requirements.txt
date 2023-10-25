@@ -1,6 +1,3 @@
-import streamlit 
-from pytube 
-import tqdm
-import requests
-import re
-import os
+pytube==15.0.0
+setuptools==68.0.0
+wheel==0.37.1
