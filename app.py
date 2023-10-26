@@ -8,8 +8,6 @@ import os
 def clean_filename(filename):
     # Replace invalid characters with underscores
     return re.sub(r'[\/:*?"<>|]', '_', filename)
-  # Replace invalid characters with underscores
-  return re.sub(r'[\/:*?"<>|]', '_', filename)
 
 def download_video(selected_stream, yt):
     # Get the user's Downloads folder path
